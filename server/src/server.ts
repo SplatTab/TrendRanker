@@ -10,9 +10,12 @@ import { configureAuth } from "./auth.js";
 
 const app = express();
 const PORT = process.env.PORT || 10000;
+const clientUrl = (process.env.CLIENT_URL ?? "http://localhost:5173").replace(/\/+$/, "");
+
+app.set("trust proxy", 1);
 
 app.use(cors({
-  origin: process.env.CLIENT_URL ?? "http://localhost:5173",
+  origin: clientUrl,
   credentials: true,
 }));
 app.use(helmet());

@@ -18,7 +18,7 @@ declare global {
   }
 }
 
-const clientUrl = process.env.CLIENT_URL ?? "http://localhost:5173";
+const clientUrl = (process.env.CLIENT_URL ?? "http://localhost:5173").replace(/\/+$/, "");
 const googleAuthConfigured = Boolean(
   process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET
 );
