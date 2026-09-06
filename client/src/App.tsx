@@ -11,7 +11,7 @@ import type {
   VoteResponse,
 } from "./types/api"
 
-const API_URL = import.meta.env.API_URL ?? "http://localhost:3000"
+const API_URL = import.meta.env.API_URL ?? "http://localhost:10000"
 
 function NextButton({ onClick }: { onClick: () => void }) {
   return (

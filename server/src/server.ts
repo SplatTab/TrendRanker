@@ -9,7 +9,7 @@ import type { PostgresError } from "./db.js";
 import { configureAuth } from "./auth.js";
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
 app.use(cors({
   origin: process.env.CLIENT_URL ?? "http://localhost:5173",
