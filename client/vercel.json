@@ -1,12 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/api/:path*",
+      "destination": "https://trendranker.onrender.com/:path*"
     },
     {
-      "source": "/api/:path*",
-      "destination": "https://trendranker.onrender.com/api/:path*"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
