@@ -1,0 +1,108 @@
+:root {
+  --text: #f4f4f6;
+  --bg: #0f0f0f;
+  --border: #2d2d35;
+  --accent: #fdfdfd;
+  --accent-answer-1: #ef1313;
+  --accent-answer-2: #3385ff;
+  --accent-answer-3: #4eff33;
+  --accent-answer-4: #ffe733;
+  --accent-bg-answer-1: rgba(239, 19, 19, 0.1);
+  --accent-bg-answer-2: rgba(51, 133, 255, 0.1);
+  --accent-bg-answer-3: rgba(78, 255, 51, 0.1);
+  --accent-bg-answer-4: rgba(255, 231, 51, 0.1);
+  --accent-border: conic-gradient(
+    from 225deg,
+    var(--accent-answer-1),
+    var(--accent-answer-2),
+    var(--accent-answer-3),
+    var(--accent-answer-4),
+    var(--accent-answer-1)
+  );
+  --social-bg: rgba(255, 255, 255, 0.06);
+  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  --mono: ui-monospace, Consolas, monospace;
+
+  font: 18px/145% var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: dark;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --text: #202124;
+    --bg: #ffffff;
+    --border: #d7dbe3;
+    --accent: #202124;
+    --accent-bg-answer-1: rgba(239, 19, 19, 0.08);
+    --accent-bg-answer-2: rgba(51, 133, 255, 0.08);
+    --accent-bg-answer-3: rgba(31, 145, 20, 0.1);
+    --accent-bg-answer-4: rgba(190, 165, 0, 0.12);
+    --social-bg: rgba(32, 33, 36, 0.06);
+    color-scheme: light;
+  }
+}
+
+#root {
+  position: relative;
+  width: 1126px;
+  max-width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  border-inline: 1px solid var(--border);
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  margin: 32px 0;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 20px 0;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 118%;
+  letter-spacing: -0.24px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  margin: 0;
+}
+
+.answer {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text);
+}
