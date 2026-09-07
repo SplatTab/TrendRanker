@@ -1,5 +1,5 @@
 # https://trend-ranker-splattab.vercel.app/
-Vote on trends
-Vote on trend with most guesses
-Win Points
-Get on leaderboard
+1. Vote on trends
+1. Vote on trend with most guesses
+1. Win Points
+1. Get on leaderboard
