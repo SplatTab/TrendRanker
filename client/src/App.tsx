@@ -12,6 +12,30 @@ import type {
 } from "./types/api"
 
 const API_URL = import.meta.env.VITE_API_URL ?? "http://localhost:10000"
+const SITE_URL = "https://trend-ranker-splattab.vercel.app"
+
+function updatePageMetadata(pathname: string) {
+  const metadata = pathname === "/leaderboard"
+    ? {
+        title: "TrendRanker Leaderboard | Most Trendy",
+        description: "See who reads the room best on the TrendRanker leaderboard.",
+      }
+    : pathname === "/privacy"
+      ? {
+          title: "Privacy Policy | TrendRanker",
+          description: "Learn how TrendRanker collects, uses, and protects account and voting information.",
+        }
+      : {
+          title: "TrendRanker | Vote on what's trending",
+          description: "Vote on today's trends, test your instincts, and climb the TrendRanker leaderboard.",
+        }
+
+  document.title = metadata.title
+  const description = document.querySelector('meta[name="description"]')
+  description?.setAttribute("content", metadata.description)
+  const canonical = document.querySelector('link[rel="canonical"]')
+  canonical?.setAttribute("href", `${SITE_URL}${pathname === "/" ? "/" : pathname}`)
+}
 
 function NextButton({ onClick }: { onClick: () => void }) {
   return (
@@ -29,6 +53,11 @@ function NextButton({ onClick }: { onClick: () => void }) {
 function App() {
   const isPrivacyPolicy = window.location.pathname === "/privacy"
   const isLeaderboard = window.location.pathname === "/leaderboard"
+
+  useEffect(() => {
+    updatePageMetadata(window.location.pathname)
+  }, [])
+
   const [questionId, setQuestionId] = useState<number | null>(null)
   const [question, setQuestion] = useState("Loading question...")
   const [answers, setAnswers] = useState<{ id: number; text: string }[]>([])
@@ -186,7 +215,8 @@ function App() {
           }
         }}
       />
-      <section id="center">
+      <main id="center">
+        <h1 className="visually-hidden">Vote on what's trending</h1>
         {error ? <p>{error}</p> : <>
           <h2>{question}</h2>
           {answers.map((answer, index) => (
@@ -217,7 +247,7 @@ function App() {
         </>}
 
 
-      </section>
+      </main>
 
       <footer>
         <a href="/privacy">Privacy Policy</a>
